@@ -1,10 +1,15 @@
-
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Homepage from "./pages/Homepage";
+import Chatpage from "./pages/Chatpage";
 
 function App() {
   return (
     <div className="App">
-      Chatify
+      <Routes>
+        <Route path="/" Component={Homepage} />
+        <Route path="/chat" Component={Chatpage} />
+      </Routes>
     </div>
   );
 }
