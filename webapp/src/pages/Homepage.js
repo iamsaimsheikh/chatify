@@ -2,8 +2,8 @@ import React from "react";
 import { Container, Box, Text } from "@chakra-ui/react";
 import { ChatIcon } from "@chakra-ui/icons";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import LoginForm from "../components/loginForm/LoginForm.js";
-import SignupForm from "../components/signupForm/SignupForm.js";
+import LoginForm from "../components/loginForm/LoginForm";
+import SignupForm from "../components/signupForm/SignupForm";
 
 const Homepage = () => {
   return (
