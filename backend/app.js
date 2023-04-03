@@ -1,11 +1,16 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const connectDB = require('./config/db')
-
+const connectDB = require("./config/db");
 const chats = require("./data/data.js");
+
+// Routes
+const userRoutes = require("./routes/userRoutes");
+const { notFound, errorHandler } = require("./middelwares/errorMiddleware");
 
 const app = express();
 dotenv.config();
+
+app.use(express.json());
 
 connectDB();
 const PORT = process.env.PORT || 5000;
@@ -15,10 +20,10 @@ app.get("/", (req, res) => {
   res.send(chats);
 });
 
-app.get("/chat/:id", (req, res) => {
-  const chat = chats.find((c) => c._id == req.params.id);
-  res.send(chat);
-});
+app.use("/api/user", userRoutes);
+
+app.use(notFound)
+app.use(errorHandler)
 
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
