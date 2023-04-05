@@ -103,8 +103,8 @@ const SignupForm = () => {
       const data = new FormData();
       data.append("file", pics);
       data.append("upload_preset", "chat-app");
-      data.append("cloud_name", "piyushproj");
-      fetch("https://api.cloudinary.com/v1_1/we-are-nova", {
+      data.append("cloud_name", "we-are-nova");
+      fetch("https://api.cloudinary.com/v1_1/we-are-nova/upload", {
         method: "post",
         body: data,
       })
